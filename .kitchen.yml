@@ -1,0 +1,27 @@
+---
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: 14.12.3
+  accept_license: true
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-18.04
+    driver_config:
+      forward:
+
+suites:
+  - name: default
+    run_list:
+      - recipe[dbase::default]
+    verifier:
+      inspec_tests:
+        - test/integration/default
+    attributes:

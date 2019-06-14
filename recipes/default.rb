@@ -14,3 +14,4 @@ end
 include_recipe "dbase::timezone"
 include_recipe "dbase::user_bashrc"
 include_recipe "dbase::motd"
+include_recipe "dbase::monit"
